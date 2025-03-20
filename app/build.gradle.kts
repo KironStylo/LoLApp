@@ -68,6 +68,9 @@ dependencies {
     //Coroutines
     implementation(libs.android.coroutines)
 
+    // GSON
+    implementation(libs.gson)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
