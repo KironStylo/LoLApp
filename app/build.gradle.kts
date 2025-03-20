@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.android.lifecycle.viewmodel)
     implementation(libs.android.lifecycle.runtime)
 
+    //Coroutines
+    implementation(libs.android.coroutines)
 
 
     testImplementation(libs.junit)
