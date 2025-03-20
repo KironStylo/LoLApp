@@ -9,6 +9,7 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 dagger-hilt = "2.53.1"
+retrofit = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,9 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 # Dagger-Hilt Libraries
 dagger-hilt-android = {module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt"}
 dagger-hilt-compiler = {module = "com.google.dagger:hilt-android-compiler", version.ref="dagger-hilt"}
+
+# Retrofit 2.0
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
