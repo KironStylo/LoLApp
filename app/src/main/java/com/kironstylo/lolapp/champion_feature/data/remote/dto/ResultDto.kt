@@ -12,4 +12,9 @@ data class ResultDto(
     val type: String? = "",
     @SerializedName("version")
     val version: String? = ""
-)
+){
+    fun toChampion(): List<ChampionDto>{
+        return data.values.toList()
+    }
+}
+
