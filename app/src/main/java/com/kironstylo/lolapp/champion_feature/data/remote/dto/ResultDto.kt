@@ -2,6 +2,7 @@ package com.kironstylo.lolapp.champion_feature.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.kironstylo.lolapp.champion_feature.domain.model.ChampionModel
 
 data class ResultDto(
     @SerializedName("data")
@@ -13,8 +14,10 @@ data class ResultDto(
     @SerializedName("version")
     val version: String? = ""
 ){
-    fun toChampion(): List<ChampionDto>{
-        return data.values.toList()
+    fun toChampion(): List<ChampionModel>{
+        return data.values.toList().map{
+            it.toChampion()
+        }
     }
 }
 
