@@ -76,6 +76,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 
+    // Navigation
+    implementation(libs.hilt.navigation)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

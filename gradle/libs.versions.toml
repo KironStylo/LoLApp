@@ -1,6 +1,5 @@
 [versions]
 agp = "8.7.3"
-coil = "2.7.0"
 coilCompose = "3.1.0"
 converterGson = "2.11.0"
 kotlin = "2.0.0"
@@ -13,6 +12,7 @@ activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 dagger-hilt = "2.55"
 retrofit = "2.11.0"
+navigation = "1.2.0"
 kotlinCoroutinesAndroid = "1.10.1"
 gson = "2.12.1"
 
@@ -53,6 +53,9 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 # COIL
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
+
+# Navigation
+hilt-navigation = { module = "androidx.hilt:hilt-navigation", version.ref = "navigation"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
