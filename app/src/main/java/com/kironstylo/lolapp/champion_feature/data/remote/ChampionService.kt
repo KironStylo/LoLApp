@@ -9,7 +9,7 @@ import java.io.IOException
 import javax.inject.Inject
 import java.util.HashMap
 
-class ChampionService @Inject constructor(
+class ChampionService (
     private val api: ChampionApi
 ) {
     fun getChampions(): Flow<Resource<List<ChampionModel>>> = flow {

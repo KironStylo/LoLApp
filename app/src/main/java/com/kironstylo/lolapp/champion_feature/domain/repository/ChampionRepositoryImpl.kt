@@ -7,7 +7,7 @@ import com.kironstylo.lolapp.core.Resource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class ChampionRepositoryImpl @Inject constructor(
+class ChampionRepositoryImpl (
     private val championService: ChampionService
 ): ChampionRepository{
 
@@ -18,4 +18,5 @@ class ChampionRepositoryImpl @Inject constructor(
     override fun getChampion(championName: String): Flow<Resource<ChampionModel>> {
         TODO("Not yet implemented")
     }
+
 }
