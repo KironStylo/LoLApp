@@ -26,7 +26,7 @@ class ChampionService (
                 Log.i("Champion Service", "$championList")
                 emit(Resource.Success(championList))
             } else {
-                Log.i("Unsuccessful response", "${response.code()} - ${response.message()} - ${response.raw().request.url}")
+                Log.i("Unsuccessful response", "${response.code()} - ${response.message()}")
                 emit(Resource.Error("API error: ${response.code()} - ${response.message()}"))
             }
         } catch (e: IOException) {
@@ -35,6 +35,25 @@ class ChampionService (
             emit(Resource.Error("HTTP error: ${e.localizedMessage}"))
         } catch (e: Exception) {
             emit(Resource.Error("Unknown error: ${e.localizedMessage}"))
+        }
+    }
+
+    fun getChampion(championName: String):Flow<Resource<ChampionModel>> = flow{
+        emit(Resource.Loading())
+        try{
+            val response = api.getChampion(championName)
+            if(response.isSuccessful){
+                val champion = response.body()?.toChampion()?.get(0) ?: ChampionModel()
+                Log.i("Succesful Response Champion","$champion")
+                emit(Resource.Success(champion))
+            }
+            else{
+                Log.i("Unsuccessful response", "${response.code()} - ${response.message()}")
+                emit(Resource.Error("API error: ${response.code()} - ${response.message()}"))
+            }
+        }
+        catch(e : IOException){
+            emit(Resource.Error("Network error: ${e.localizedMessage}"))
         }
     }
 

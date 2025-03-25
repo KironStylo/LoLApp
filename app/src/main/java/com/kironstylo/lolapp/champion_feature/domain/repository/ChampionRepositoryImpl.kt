@@ -16,7 +16,7 @@ class ChampionRepositoryImpl (
     }
 
     override fun getChampion(championName: String): Flow<Resource<ChampionModel>> {
-        TODO("Not yet implemented")
+        return championService.getChampion(championName)
     }
 
 }
