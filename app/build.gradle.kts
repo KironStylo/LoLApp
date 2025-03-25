@@ -72,6 +72,10 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.converter.gson)
 
+    // Async Image Loading
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
