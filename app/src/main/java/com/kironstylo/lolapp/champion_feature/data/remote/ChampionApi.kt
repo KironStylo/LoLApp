@@ -8,16 +8,16 @@ import retrofit2.http.Path
 
 interface ChampionApi {
 
-    @GET("/champions.json")
+    @GET("champion.json")
     suspend fun getChampions(): Response<ResultDto>
 
-    @GET("/champion/{champion}.json")
+    @GET("champion/{champion}.json")
     suspend fun getChampion(
         @Path("champion") championName:String
-    ): ResultDto
+    ): Response<ResultDto>
 
     companion object{
-        const val BASE_URL = "https://ddragon.leagueoflegends.com/cdn/15.6.1/data/en_US"
+        const val BASE_URL = "https://ddragon.leagueoflegends.com/cdn/15.6.1/data/en_US/"
 
         const val SPLASH_URL = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"
         const val LOADING_URL = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/"
