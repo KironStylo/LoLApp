@@ -1,4 +1,4 @@
-package com.kironstylo.lolapp.champion_feature.presentation.components
+package com.kironstylo.lolapp.champion_feature.presentation.list_screen.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,8 +21,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionUIEvents
-import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionUIState
+import com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel.ChampionUIEvents
+import com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel.ChampionUIState
 
 @Composable
 fun ChampionListScreen(

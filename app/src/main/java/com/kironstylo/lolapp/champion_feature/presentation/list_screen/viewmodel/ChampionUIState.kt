@@ -1,4 +1,4 @@
-package com.kironstylo.lolapp.champion_feature.presentation.viewmodel
+package com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel
 
 import com.kironstylo.lolapp.champion_feature.domain.model.ChampionModel
 

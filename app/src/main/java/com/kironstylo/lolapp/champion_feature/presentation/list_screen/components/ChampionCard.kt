@@ -1,4 +1,4 @@
-package com.kironstylo.lolapp.champion_feature.presentation.components
+package com.kironstylo.lolapp.champion_feature.presentation.list_screen.components
 
 import android.media.Image
 import androidx.compose.foundation.Image
@@ -35,11 +35,11 @@ fun ChampionCard(
     Row (
         modifier = Modifier
             .padding(4.dp)
-            .height(140.dp),
+            .height(180.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ){
         AsyncImage(
-            model = ChampionApi.LOADING_URL + "${championModel.name}_0.jpg",
+            model = ChampionApi.LOADING_URL + "${championModel.id}_0.jpg",
             contentDescription = null,
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
@@ -64,11 +64,11 @@ fun ChampionCard(
                 contentAlignment = Alignment.Center
             ){
                 Text(
-                    text = championModel.lore,
+                    text = championModel.blurb,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 6,
                     style = MaterialTheme.typography.bodyMedium,
-                    lineHeight = 10.sp
+                    lineHeight = 24.sp
                 )
             }
         }

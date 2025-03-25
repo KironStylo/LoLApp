@@ -14,8 +14,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kironstylo.lolapp.champion_feature.presentation.components.ChampionListScreen
-import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionViewModel
+import com.kironstylo.lolapp.champion_feature.presentation.list_screen.components.ChampionListScreen
+import com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel.ChampionViewModel
 import com.kironstylo.lolapp.ui.theme.LoLAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
