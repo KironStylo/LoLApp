@@ -17,7 +17,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.kironstylo.lolapp.champion_feature.presentation.components.ChampionListScreen
 import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionViewModel
 import com.kironstylo.lolapp.ui.theme.LoLAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val championViewModel: ChampionViewModel by viewModels()
