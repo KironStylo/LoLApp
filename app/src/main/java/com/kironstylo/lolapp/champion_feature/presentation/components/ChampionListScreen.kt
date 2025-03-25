@@ -14,13 +14,20 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionUIEvents
 import com.kironstylo.lolapp.champion_feature.presentation.viewmodel.ChampionUIState
 
 @Composable
 fun ChampionListScreen(
+    championUIState: ChampionUIState,
+    championUIEvent: (ChampionUIEvents) -> Unit
 ){
     Scaffold(
         modifier = Modifier
@@ -33,9 +40,13 @@ fun ChampionListScreen(
                 .padding(horizontal = 20.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            var text by rememberSaveable { mutableStateOf("") }
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = text,
+                onValueChange = {
+                    text = it
+                    championUIEvent(ChampionUIEvents.SearchChampion(text))
+                },
                 placeholder = {
                     Text(
                         text = "Search for champs"
@@ -50,8 +61,10 @@ fun ChampionListScreen(
             LazyColumn (
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ){
-                items(5){
-                    ChampionCard()
+                items(
+                    championUIState.filteredList
+                ){
+                    ChampionCard(it)
                 }
             }
         }
@@ -61,5 +74,4 @@ fun ChampionListScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun ChampionListScreenPreview(){
-    ChampionListScreen()
 }

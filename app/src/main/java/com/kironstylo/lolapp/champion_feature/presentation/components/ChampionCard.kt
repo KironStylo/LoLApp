@@ -15,25 +15,33 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.kironstylo.lolapp.R
+import com.kironstylo.lolapp.champion_feature.data.remote.ChampionApi
+import com.kironstylo.lolapp.champion_feature.domain.model.ChampionModel
 
 @Composable
-fun ChampionCard() {
+fun ChampionCard(
+    championModel: ChampionModel
+) {
     Row (
         modifier = Modifier
             .padding(4.dp)
             .height(140.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ){
-        Image(
-            painter = painterResource(R.drawable.draven),
+        AsyncImage(
+            model = ChampionApi.LOADING_URL + "${championModel.name}_0.jpg",
             contentDescription = null,
+            contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .clip(RoundedCornerShape(20.dp))
                 .weight(0.3f)
@@ -44,7 +52,7 @@ fun ChampionCard() {
                 .weight(0.9f),
         ){
             Text(
-                text = "Draven",
+                text = championModel.name,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
@@ -56,9 +64,11 @@ fun ChampionCard() {
                 contentAlignment = Alignment.Center
             ){
                 Text(
-                    text = "In Noxus, warriors known as Reckoners face one another in arenas where blood is spilled and strength tested—but none has ever been as celebrated as Draven. A former soldier, he found that the crowds uniquely appreciated his flair for the dramatic, and...",
+                    text = championModel.lore,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 6,
+                    style = MaterialTheme.typography.bodyMedium,
+                    lineHeight = 10.sp
                 )
             }
         }
@@ -68,5 +78,4 @@ fun ChampionCard() {
 @Preview(showBackground = true)
 @Composable
 fun ChampionCardPreview(){
-    ChampionCard()
 }
