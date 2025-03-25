@@ -28,7 +28,7 @@ fun ChampionCard() {
     Row (
         modifier = Modifier
             .padding(4.dp)
-            .height(180.dp),
+            .height(140.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ){
         Image(

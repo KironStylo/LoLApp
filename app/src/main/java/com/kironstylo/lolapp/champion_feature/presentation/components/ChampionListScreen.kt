@@ -1,5 +1,6 @@
 package com.kironstylo.lolapp.champion_feature.presentation.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,7 +30,8 @@ fun ChampionListScreen(
         Column(
             modifier = Modifier
                 .padding(innerPadding)
-                .padding(horizontal = 20.dp)
+                .padding(horizontal = 20.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             OutlinedTextField(
                 value = "",
@@ -44,8 +46,14 @@ fun ChampionListScreen(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-
             )
+            LazyColumn (
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ){
+                items(5){
+                    ChampionCard()
+                }
+            }
         }
     }
 }
