@@ -15,6 +15,7 @@ import javax.inject.Inject
 class ChampionViewModel @Inject constructor(
     private val getChampionsUseCase: GetChampionsUseCase
 ) : ViewModel() {
+
     private val _championUIState = MutableStateFlow(ChampionUIState())
     val championUIState = _championUIState.asStateFlow()
 
@@ -38,10 +39,18 @@ class ChampionViewModel @Inject constructor(
         }
     }
 
-    fun searchChampion(championName: String){
+    fun onEvent(championUIEvents: ChampionUIEvents){
+        when(championUIEvents){
+            is ChampionUIEvents.SearchChampion -> {
+                searchChampion(championUIEvents.query)
+            }
+        }
+    }
+
+    private fun searchChampion(championName: String){
         _championUIState.value = championUIState.value.copy(
             filteredList = championUIState.value.championList.filter{
-                championName.contains(championName)
+                championName.contains(championName, ignoreCase = true)
             }
         )
     }
