@@ -2,6 +2,7 @@ package com.kironstylo.lolapp.champion_feature.presentation.list_screen.componen
 
 import android.media.Image
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,12 +31,16 @@ import com.kironstylo.lolapp.champion_feature.domain.model.ChampionModel
 
 @Composable
 fun ChampionCard(
-    championModel: ChampionModel
+    championModel: ChampionModel,
+    onClick: (String) -> Unit
 ) {
     Row (
         modifier = Modifier
             .padding(4.dp)
-            .height(180.dp),
+            .height(180.dp)
+            .clickable{
+                onClick(championModel.id)
+            },
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ){
         AsyncImage(
