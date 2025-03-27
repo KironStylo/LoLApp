@@ -12,15 +12,17 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.kironstylo.lolapp.champion_feature.data.remote.ChampionApi
 import com.kironstylo.lolapp.champion_feature.domain.model.ChampionModel
+import com.kironstylo.lolapp.champion_feature.presentation.detail_screen.viewmodel.DetailUIState
 
 @Composable
 fun ChampionDetailScreen(
-    champion: ChampionModel
+    detailUIState: DetailUIState
 ){
     Scaffold { innerPadding ->
         LazyColumn (
             contentPadding = innerPadding
         ){
+            val champion = detailUIState.championDetail
             item{
                 AsyncImage(
                     model = ChampionApi.SPLASH_URL+"${champion.id}_0.jpg",

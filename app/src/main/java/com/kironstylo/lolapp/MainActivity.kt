@@ -14,6 +14,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.kironstylo.lolapp.champion_feature.presentation.detail_screen.components.ChampionDetailScreen
+import com.kironstylo.lolapp.champion_feature.presentation.detail_screen.viewmodel.DetailViewModel
 import com.kironstylo.lolapp.champion_feature.presentation.list_screen.components.ChampionListScreen
 import com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel.ChampionViewModel
 import com.kironstylo.lolapp.ui.theme.LoLAppTheme
@@ -29,12 +34,28 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LoLAppTheme {
-                 val championListState by championViewModel.championUIState.collectAsState()
-                 ChampionListScreen(
-                     championListState
-                 ) {
-                     championViewModel.onEvent(it)
-                 }
+                val navController = rememberNavController()
+                val championListState by championViewModel.championUIState.collectAsState()
+                NavHost(navController, startDestination = "ChampionList") {
+                    composable("ChampionList"){
+                        ChampionListScreen(
+                            championListState,
+                            championViewModel::onEvent
+                        ) { name ->
+                           navController.navigate("ChampionDetails/$name")
+                        }
+                    }
+                    composable("ChampionDetails/{name}"){
+                        val detailViewModel: DetailViewModel by viewModels()
+                        val detail by detailViewModel.detailUIState.collectAsState()
+                        ChampionDetailScreen(
+                            detail
+                        )
+                    }
+                }
+
+
+
             }
         }
     }

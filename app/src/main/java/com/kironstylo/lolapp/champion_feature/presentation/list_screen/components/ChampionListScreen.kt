@@ -27,7 +27,8 @@ import com.kironstylo.lolapp.champion_feature.presentation.list_screen.viewmodel
 @Composable
 fun ChampionListScreen(
     championUIState: ChampionUIState,
-    championUIEvent: (ChampionUIEvents) -> Unit
+    championUIEvent: (ChampionUIEvents) -> Unit,
+    onClick: (String) -> Unit
 ){
     Scaffold(
         modifier = Modifier
@@ -64,7 +65,10 @@ fun ChampionListScreen(
                 items(
                     championUIState.filteredList
                 ){
-                    ChampionCard(it)
+                    ChampionCard(
+                        it,
+                        onClick
+                    )
                 }
             }
         }
