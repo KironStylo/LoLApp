@@ -1,5 +1,6 @@
 package com.kironstylo.lolapp.champion_feature.presentation.detail_screen.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ListItem
@@ -23,8 +24,9 @@ fun ChampionPassive(passive: PassiveModel, modifier: Modifier = Modifier){
             Text(passive.description)
         },
         leadingContent = {
+            Log.i("Passive", ChampionApi.PASSIVE_URL+passive.image.full)
             AsyncImage(
-                model = ChampionApi.ABILITY_URL+passive.image.full,
+                model = ChampionApi.PASSIVE_URL+passive.image.full,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
