@@ -14,6 +14,7 @@ dagger-hilt = "2.55"
 retrofit = "2.11.0"
 navigation = "1.2.0"
 kotlinCoroutinesAndroid = "1.10.1"
+navigationCompose = "2.8.9"
 gson = "2.12.1"
 
 
@@ -56,6 +57,7 @@ coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version
 
 # Navigation
 hilt-navigation = { module = "androidx.hilt:hilt-navigation", version.ref = "navigation"}
+navigation-compose = {module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

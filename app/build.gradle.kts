@@ -78,6 +78,7 @@ dependencies {
 
     // Navigation
     implementation(libs.hilt.navigation)
+    implementation(libs.navigation.compose)
 
 
     testImplementation(libs.junit)
